@@ -1,0 +1,23 @@
+body {
+  background: url(https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg);
+  heigh: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.weather-box {
+  padding: 60px 80px;
+  margin-bottom: 10px;
+  border: 1px solid #f5f5f5;
+  border-radius: 30px;
+}
+
+.location-btn {
+  margin-right: 10px;
+}
