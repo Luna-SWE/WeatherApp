@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-export const WeatherButton = () => {
+const WeatherButton = () => {
   return (
     <div>
       <Button className='location-btn' variant='warning'>
@@ -14,3 +14,5 @@ export const WeatherButton = () => {
     </div>
   );
 };
+
+export default WeatherButton;
