@@ -14,21 +14,31 @@ function App() {
   const cities = ['Paris', 'London', 'New York', 'Seoul'];
 
   const getWeatherByCurrentLocation = useCallback(async (lat, lon) => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-    setIsLoading(true);
-    let response = await fetch(url);
-    let data = await response.json();
-    setWeather(data);
-    setIsLoading(false);
+    try {
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+      setIsLoading(true);
+      let response = await fetch(url);
+      let data = await response.json();
+      setWeather(data);
+      setIsLoading(false);
+    } catch {
+      console.error();
+      setIsLoading(false);
+    }
   }, []);
 
   const getWeatherByCity = useCallback(async (city) => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-    setIsLoading(true);
-    let response = await fetch(url);
-    let data = await response.json();
-    setWeather(data);
-    setIsLoading(false);
+    try {
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+      setIsLoading(true);
+      let response = await fetch(url);
+      let data = await response.json();
+      setWeather(data);
+      setIsLoading(false);
+    } catch {
+      console.error();
+      setIsLoading(false);
+    }
   }, []);
 
   const getCurrentLocation = useCallback(() => {
