@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 const WeatherButton = ({ cities, setCity, getCurrentLocation }) => {
-  // console.log(cities);
+  const [activeIndex, setActiveIndex] = useState(null); // Track the index of the active button
 
   return (
     <div>
       <Button
         className='location-btn'
-        variant='warning'
+        variant={activeIndex === 'current' ? 'dark' : 'warning'}
         onClick={() => {
           getCurrentLocation();
+          setActiveIndex('current'); // Set 'current' as the active index
         }}
       >
         Current Location
@@ -20,9 +21,10 @@ const WeatherButton = ({ cities, setCity, getCurrentLocation }) => {
           <Button
             key={index}
             className='location-btn'
-            variant='warning'
+            variant={activeIndex === index ? 'dark' : 'warning'}
             onClick={() => {
               setCity(city);
+              setActiveIndex(index); // Set the clicked button's index as active
             }}
           >
             {city}

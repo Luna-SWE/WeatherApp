@@ -21,3 +21,7 @@ body {
 .location-btn {
   margin-right: 10px;
 }
+
+.location-btn:hover {
+  opacity: 0.3;
+}
